@@ -1,0 +1,44 @@
+<span class="glyphicon glyphicon-menu-left" aria-hidden="true"><a href="/results"><h4>Back</h4></a></span>
+<h1 ><strong><span id="gameName"><%= data.name %></span>'s Page</strong></h1>
+<hr>
+<% if(usersgames) { %>
+  <h4>Average User Rating: <%= usersgames.rating %> </h4>
+  <% } else { %>
+  <h4>Average User Rating: No Ratings Yet </h4>
+  <% } %> </h4>
+<hr>
+<% if(data.cover.cloudinary_id) { %> 
+  <img src="https://res.cloudinary.com/igdb/image/upload/t_cover_big_2x/<%= data.cover.cloudinary_id %>.webp">
+<% } else { %> 
+  <img src="/img/noImg.jpg"> 
+<% } %>
+<hr>
+<h4>Summary:</h4>
+<p><%= data.summary %></p>
+<hr>
+<form method="post" action="/game/<%= data.id %>" class="form-group">
+  <input name="title" type="hidden" value="<%= data.name %>">
+  <input name="apiId" type="hidden" value="<%= data.id %>">
+  <input name="imgURL" type="hidden" value="<%= data.cover.cloudinary_id%>">
+  <input type="text" name="reviews" class="form-control" rows="3" placeholder="Write Your Review Of This Game">
+  <h6>Rate <%= data.name %></h6>
+  <fieldset class="rating">
+      <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+      <input type="radio" id="star4half" name="rating" value="4.5" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+      <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+      <input type="radio" id="star3half" name="rating" value="3.5" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+      <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+      <input type="radio" id="star2half" name="rating" value="2.5" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+      <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+      <input type="radio" id="star1half" name="rating" value="1.5" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+      <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+      <input type="radio" id="starhalf" name="rating" value=".5" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+  </fieldset>
+  <br>
+  <br>
+  <input type="submit" name="Submit" class="btn btn-primary">
+</form>
+<div>
+
+</div>
+

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var passport = require('../config/ppConfig')
+var passport = require('../config/ppConfig');
+var path = require('path');
 
 var db = require('../models');
 
@@ -12,7 +13,8 @@ router.post('/signup', function(req,res){
   db.user.findOrCreate({
     where: { email: req.body.email},
     defaults: {
-      name: req.body.name,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       password: req.body.password
     }
   }).spread(function(user, created) {

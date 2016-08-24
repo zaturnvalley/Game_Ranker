@@ -12,7 +12,16 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     },
-    name: {
+    firstName: {
+      type: DataTypes.STRING,
+      validate: {
+        len: {
+          args: [1, 99],
+          msg: 'Name must be between 1 and 99 characters'
+        }
+      }
+    },
+    lastName: {
       type: DataTypes.STRING,
       validate: {
         len: {
@@ -41,13 +50,13 @@ module.exports = function(sequelize, DataTypes) {
 
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        models.user.belongsToMany(models.game, {through: 'gamesUsers'});
       }
     },
 
     instanceMethods: {
       validPassword: function (password) {
-        return bycrypt.compareSync(password, this.password);
+        return bcrypt.compareSync(password, this.password);
       },
 
       toJSON: function() {

@@ -3,12 +3,42 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Authentication</title>
+    <title>Game Ranker</title>
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
   </head>
   <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          </button>
+          <a class="navbar-brand" href="/" style="font-size: 35px">Game Ranker</a>
+        </div>
+        <form method='get' action='/results' class="navbar-form navbar-right">
+              <div class="form-group">
+                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                <input type="text" name='q' class="form-control" placeholder="Search for a game">
+              </div>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/charts">Charts</a></li>
+          <li><a href="/profile">Profile</a></li>
+          <li><a href="/mylists">My Lists</a></li>
+          <li><a href="/auth/signup">Sign Up</a></li>
+          <li role="separator" class="divider"></li>
+          <li><a href="/auth/login">Log In</a></li>
+          <li><a href="/auth/logout">Log Out</a></li>
+        </ul>
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
     <div class="container">
       <p><strong><%- JSON.stringify(currentUser) %></strong></p>
       <% if(alerts.error) { %>
@@ -21,10 +51,10 @@
           <div class="alert alert-success"><%= msg %></div>
         <% }); %>
       <% } %>
-      <h1>Authentication</h1>
       <%- body %>
     </div>
-
+    <footer class="text-center">
+      <p>Information was freely provided by igdb.com</p>
     <script src="//code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </body>

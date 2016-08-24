@@ -1,0 +1,10 @@
+<span class="glyphicon glyphicon-menu-left" aria-hidden="true"><a href="/"><h4>Back</h4></a></span>
+<% results.forEach(function(result){ %>
+      <div>
+      <h2> <%= result.name %> </h2>
+        <ul>
+          <li><a href="game/<%= result.id %>">Click for <%= result.name %>'s Individual Page</a></li>
+            </a></li>
+        </ul>
+      </div>
+    <% }) %>

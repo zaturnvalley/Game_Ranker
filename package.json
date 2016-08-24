@@ -29,11 +29,14 @@
     "express": "^4.13.4",
     "express-ejs-layouts": "^2.1.0",
     "express-session": "^1.14.0",
+    "fs": "0.0.2",
     "morgan": "^1.7.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
+    "path": "^0.12.7",
     "pg": "^5.0.0",
     "pg-hstore": "^2.3.2",
+    "request": "^2.74.0",
     "sequelize": "^3.23.3"
   }
 }
