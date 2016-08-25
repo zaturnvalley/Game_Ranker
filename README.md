@@ -1,27 +1,29 @@
-# Express Authentication
+# Game Ranker
 
-Express authentication template using Passport + flash messages + custom middleware
+A full stack app that allows you to search a video game API and rate / review games
 
 ## Getting Started
 
-#### Scaffold w/tests (see `master` branch)
+#### Create your own account
 
-* Run `npm install` to install dependencies
-  * Use `npm run lint:js` to lint your JS
-  * Use `npm run lint:css` to lint your CSS
-  * Use `npm test` to run tests
-* Setup the databases
-  * Change the database names in `config/config.json` to reflect your project
-  * Run `createdb project_name_development` to create the development database
-  * Run `createdb project_name_test` to create the test database
+* Goto the Sign In Page and enter your information
+* Use the search function to find a game you like
+  * Browse the list of games and find the specific game you want
+* Rate and review your game, submit
+  * All ranked / reviewed games will appear on your profile page
+* You can update or delete reviews from your profile page as well
 
-#### Finished version (see `brian-finished` branch)
+#### Technologies Used
 
-* Run `npm install` to install dependencies
-  * Use `npm run lint:js` to lint your JS
-  * Use `npm run lint:css` to lint your CSS
-  * Use `npm test` to run tests
-* Setup the databases
-  * Run `createdb express_auth_development` to create the development database
-  * Run `createdb express_auth_test` to create the test database
-  * Run `sequelize db:migrate` to run migrations
+* HTML
+* CSS
+* Javascript
+* Node.js
+* SQL
+* Sequelize
+* Express
+* AJAX
+* Bcrypt
+* EJS & EJS Layouts
+* Passport
+
