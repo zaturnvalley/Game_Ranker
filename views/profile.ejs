@@ -1,36 +1,40 @@
-<h2>Profile Page</h2>
-
-<a href="/">Home</a>
-<h1><%= data[0].firstName %></h1>
+<h1 style="margin: 0 auto"><%= data[0].firstName %>'s Reviews</h1>
 <div class="table table-striped">
-  <div class="row"> 
+  <table>
   <% data.forEach(function(data) { %>
-    <div class="col-md-6">
-      <ul style="border: 1px solid black; list-style-type:none">
-        <li>
-          <%= data.title %>
-        </li>
-        <li>
+    <div>
+      <tr style="border: 1px solid black">
+        <td>
           <% if(data.imgURL) { %> 
-            <img style="height: 200px; width:200px" src="https://res.cloudinary.com/igdb/image/upload/t_cover_big_2x/<%= data.imgURL %>.webp">
+            <img class="col-md-3" style="height: 100px; width:130px" src="https://res.cloudinary.com/igdb/image/upload/t_cover_big_2x/<%= data.imgURL %>.webp">
           <% } else { %> 
-            <img style="height: 200px; width:200px" src="/img/noImg.jpg"> 
+            <img class="col-md-3" style="height: 100px; width:130px" src="/img/noImg.jpg"> 
           <% } %>
-        </li>
-        <li>
+        </td>
+        <td class="col-md-3">
+          <strong><%= data.title %></strong>
+        </td>
+        <td class="col-md-3">
           <%= data.review %>
-        </li>
-        <li>
-          My Rating: <%= data.rating %>
-        </li>
-      </ul>
+        </td>
+        <td class="col-md-3">
+          <% for(var i=0; i < (data.rating) * 2; i++) { %>
+          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          <% } if(!data.rating) { %>
+          <%= 0 %>
+          <% } %>
+          /10
+        </td>
+        <td>
+          <form method="post" action="/update/<%= data.id %>">
+            <input type="text" name="newReview" placeholder="Re-write your review here">
+            <input id="<%= data.id %>" type="button" name="update" class="btn btn-warning update-button" value="Update Review">
+          </form>
+          <hr>
+          <input id="<%= data.id %>" type="button" name="delete" class="btn btn-danger delete-button" value="Delete Review">
+        </td>
+      </tr>
     </div>
-    <form method="post" action="/delete/<%=  %>">
-      <input type="button" name="update" class="btn btn-warning" value="Update This Review">
-    </form>
-    <form>
-      <input type="button" name="delete" class="btn btn-danger" value="Delete This Review">
-    </form>
   <% }); %>
-  <div class="row"> 
+  </table>
 </div>

@@ -1,10 +1,12 @@
-<span class="glyphicon glyphicon-menu-left" aria-hidden="true"><a href="/"><h4>Back</h4></a></span>
-<% results.forEach(function(result){ %>
-      <div>
-      <h2> <%= result.name %> </h2>
-        <ul>
-          <li><a href="game/<%= result.id %>">Click for <%= result.name %>'s Individual Page</a></li>
-            </a></li>
-        </ul>
-      </div>
-    <% }) %>
+<div class="text-center" style="margin-left: 25px; margin-right: 25px">
+  <span class="glyphicon glyphicon-menu-left" aria-hidden="true"><a href="/"><h4>Back</h4></a></span>
+  <% results.forEach(function(result){ %>
+        <div>
+        <h2> <%= result.name %> </h2>
+          <ul style="list-style-type: none">
+            <li><a href="game/<%= result.id %>">Click for <%= result.name %>'s Individual Page</a></li>
+              </a></li>
+          </ul>
+        </div>
+      <% }) %>
+</div>

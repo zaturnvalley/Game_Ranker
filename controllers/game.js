@@ -22,6 +22,7 @@ var qs = {
     var game = db.game;
     var usersgames = db.usersgames;
     if(!error){
+      console.log(data);
       res.render('game', {data: data[0], game: game, usersgames: usersgames});
     } else {
       res.send("Nope! Didn't work. Looks like there was an error. :'(");
@@ -39,7 +40,7 @@ router.post('/:id', function(req, res){
     if(user){
       user.createGame({
         title: req.body.title,
-        apiId: Number(req.body.apiId),
+        apiId: (req.body.apiId).toString(),
         imgURL: req.body.imgURL
       }).then(function(game){
         game.createReview({
