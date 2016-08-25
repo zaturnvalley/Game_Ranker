@@ -19,6 +19,8 @@ var qs = {
     }
   }, function(error, response, body){
     var data = JSON.parse(body);
+    var game = db.game;
+    var usersgames = db.usersgames;
     if(!error){
       res.render('game', {data: data[0], game: game, usersgames: usersgames});
     } else {
@@ -28,6 +30,7 @@ var qs = {
 });
 
 router.post('/:id', function(req, res){
+  console.log(req.session);
   db.user.find({
     where: {
       id: req.user.id
@@ -36,23 +39,28 @@ router.post('/:id', function(req, res){
     if(user){
       user.createGame({
         title: req.body.title,
-        
-      })
-    }
-  });
-  db.game.findOrCreate({
-    where: {
-      title: req.params.id,
-    }
-  }).spread(function(game, created){
-    db.usersgames.gamefindOrCreate({
-      where: {
-      review: req.body.reviews,
-      rating: req.body.rating
+        apiId: Number(req.body.apiId),
+        imgURL: req.body.imgURL
+      }).then(function(game){
+        game.createReview({
+          gameId: game.id, 
+          userId: user.id, 
+          review: req.body.review
+        }).then(function(review){
+          game.createRating({
+            gameId: game.id,
+            userId: user.id,
+            rating: req.body.rating
+          });
+        }).then(function(rating){
+          res.redirect("/game/" + req.body.id);
+        });
+      });
+    } else {
+        req.flash('error', 'You must be logged in to access');
+        res.redirect('/auth/login');
+        return;
       }
-    }).then(function(){
-      res.redirect('/:id');
-    });
   });
 });
 

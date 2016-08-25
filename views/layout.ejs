@@ -28,7 +28,9 @@
         </form>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/charts">Charts</a></li>
-          <li><a href="/profile">Profile</a></li>
+          <% if(currentUser) { %>
+          <li><a href="/profile/<%= currentUser.id %>">Profile</a></li>
+          <% } %>
           <li><a href="/mylists">My Lists</a></li>
           <li><a href="/auth/signup">Sign Up</a></li>
           <li role="separator" class="divider"></li>

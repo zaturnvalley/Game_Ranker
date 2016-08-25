@@ -10,6 +10,7 @@ var flash = require('connect-flash');
 var path = require('path');
 var isLoggedIn = require('./middleware/isLoggedIn');
 var gameCtrl = require("./controllers/game");
+var profileCtrl = require("./controllers/profile");
 
 //Global Variables
 var app = express();
@@ -34,6 +35,7 @@ app.use(passport.session());
 app.use(function(req, res, next) {
   res.locals.alerts = req.flash();
   res.locals.currentUser = req.user;
+  req.session.user = req.user;
   next();
 });
 
@@ -41,10 +43,6 @@ app.use(ejsLayouts);
 
 app.get('/', function(req, res) {
   res.render('index');
-});
-
-app.get('/profile', isLoggedIn, function(req, res) {
-  res.render('profile');
 });
 
 app.get('/results', function(req, res){
@@ -81,6 +79,7 @@ app.get('/charts', function(req,res){
 });
 
 app.use("/game", gameCtrl);
+app.use("/profile", profileCtrl);
 app.use('/auth', require('./controllers/auth'));
 
 var server = app.listen(process.env.PORT || 3000);

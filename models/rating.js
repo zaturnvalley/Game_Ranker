@@ -9,6 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         // associations can be defined here
         models.rating.belongsTo(models.game);
+        models.review.belongsTo(models.user);
       }
     }
   });
