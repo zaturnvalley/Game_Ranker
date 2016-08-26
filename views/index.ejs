@@ -1,37 +1,41 @@
-<h2 class="text-center">Welcome!</h2>
 
-<h3 class="text-center">Sign Up To Review</h3>
-
-<hr>
+<div class="row">
+  <div class="page-header text-center">
+    <h2>Welcome!</h2>
+    <p>Game Ranker. A site that lets YOU, the user, review and rate games. Sign in, search for games you love, and rate away!</p>
+  </div>
+</div>
 <div class="table table-striped">
   <% games.forEach(function(data) { %>
       <% if (data.title != null) { %>
-      <div class="row">
-        <div class="col-md-3 col-md-3-offset">
-          <% if(data.imgURL) { %> 
-            <a href="/game/<%= data.apiId %>"><img class="img-responsive" src="https://res.cloudinary.com/igdb/image/upload/t_cover_big_2x/<%= data.imgURL %>.webp"></a>
-          <% } else { %> 
-            <a href=""><img class="img-responsive" src="./img/noImg.jpg"> </a>
-          <% } %>
+      <div class="col-md-offset-3">
+        <div class="row">
+          <div class="col-md-3">
+            <% if(data.imgURL) { %> 
+              <a href="/game/<%= data.apiId %>"><img class="img-responsive" src="https://res.cloudinary.com/igdb/image/upload/t_cover_big_2x/<%= data.imgURL %>.webp"></a>
+            <% } else { %> 
+              <a href=""><img class="img-responsive" src="./img/noImg.jpg"> </a>
+            <% } %>
+          </div>
+          <div class="col-md-6">
+            <p><strong><%= data.title %></strong></p>
+            <h3>Review By <%= data.firstName %></h3>
+            <p><%= data.review %></p>
+            <% for(var i=0; i < Math.floor(data.rating); i++) { %>
+                <% if(!data.rating) { %>
+                  <p> No Rating Provided </p>
+                <% } else { %>
+                 <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                <% } %>
+            <% } %>
+            <% if (data.rating % 1 != 0) { %>
+                <i class="fa fa-star-half" aria-hidden="true"></i>
+            <% } %>
+            </p>
+          </div>
         </div>
-        <div class="col-md-3">
-          <p><strong><%= data.title %></strong></p>
-          <h3>Review By <%= data.firstName %></h3>
-          <p><%= data.review %></p>
-          <% for(var i=0; i < Math.floor(data.rating); i++) { %>
-              <% if(!data.rating) { %>
-                <p> No Rating Provided </p>
-              <% } else { %>
-               <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-              <% } %>
-          <% } %>
-          <% if (data.rating % 1 != 0) { %>
-              <i class="fa fa-star-half" aria-hidden="true"></i>
-          <% } %>
-          </p>
-        </div>
-      </div>
-    <% } %>
+      <% } %>
+    </div>
     <hr>
   <% }); %>
 </div>

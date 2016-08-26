@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" href="/css/font-awesome-4.6.3/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Gameness">
   </head>
   <body>
 
@@ -19,7 +20,7 @@
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           </button>
-          <a class="navbar-brand" href="/" style="font-size: 35px">Game Ranker</a>
+          <a class="navbar-brand" href="/" style="font-size: 35px; font-family: 'Futura'">Game Ranker  <i class="fa fa-gamepad" aria-hidden="true"></i></a>
         </div>
         <form method='get' action='/results' class="navbar-form navbar-right">
               <div class="form-group">
@@ -52,10 +53,13 @@
           <div class="alert alert-success"><%= msg %></div>
         <% }); %>
       <% } %>
-  <% } %>
+    <% } %>
+
       <%- body %>
+
     </div>
     <footer class="text-center">
+      <p><strong>Site designed by <a href="https://github.com/zaturnvalley/">Zach Mason</a> &copy; 2016</strong></p>
       <p>Information was freely provided by igdb.com</p>
     <script src="//code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
