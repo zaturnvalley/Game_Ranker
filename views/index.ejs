@@ -14,12 +14,12 @@
             <% if(data.imgURL) { %> 
               <a href="/game/<%= data.apiId %>"><img class="img-responsive" src="https://res.cloudinary.com/igdb/image/upload/t_cover_big_2x/<%= data.imgURL %>.webp"></a>
             <% } else { %> 
-              <a href=""><img class="img-responsive" src="./img/noImg.jpg"> </a>
+              <a href="/game/<%= data.apiId %>"><img class="img-responsive" src="./img/noImg.jpg"> </a>
             <% } %>
           </div>
           <div class="col-md-6">
-            <p><strong><%= data.title %></strong></p>
-            <h3>Review By <%= data.firstName %></h3>
+            <h3><strong><%= data.title %></strong></h3>
+            <h5>Review by <%= data.firstName %></h5>
             <p><%= data.review %></p>
             <% for(var i=0; i < Math.floor(data.rating); i++) { %>
                 <% if(!data.rating) { %>

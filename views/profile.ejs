@@ -8,7 +8,7 @@
           <% if(data.imgURL) { %> 
             <a href="/game/<%= data.apiId %>"><img class="img-responsive" src="https://res.cloudinary.com/igdb/image/upload/t_cover_big_2x/<%= data.imgURL %>.webp"></a>
           <% } else { %> 
-            <a href=""><img class="img-responsive" src="./img/noImg.jpg"> </a>
+            <a href="/game/<%= data.apiId %>"><img class="img-responsive" src="./img/noImg.jpg"> </a>
           <% } %>
         </div>
         <div class="col-md-3">
