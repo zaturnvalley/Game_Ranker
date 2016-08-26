@@ -3,7 +3,7 @@
 <h3 class="text-center">Sign Up To Review</h3>
 
 <hr>
-<div class="table table-striped col-md-offset-3">
+<div class="table table-striped">
   <% games.forEach(function(data) { %>
       <% if (data.title != null) { %>
       <div class="row">
@@ -18,20 +18,20 @@
           <p><strong><%= data.title %></strong></p>
           <h3>Review By <%= data.firstName %></h3>
           <p><%= data.review %></p>
-          <p><% for(var i=0; i < (data.rating); i++) { %>
-            <% if(data.rating >1) { %>
-            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-            <% } %>
-          <% } if(!data.rating) { %>
-            <%= 0 / 5 %>
+          <% for(var i=0; i < Math.floor(data.rating); i++) { %>
+              <% if(!data.rating) { %>
+                <p> No Rating Provided </p>
+              <% } else { %>
+               <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+              <% } %>
           <% } %>
-          <% if(data.rating % 1 != 0) { %>
-            <i class="fa fa-star-half" aria-hidden="true"></i>
+          <% if (data.rating % 1 != 0) { %>
+              <i class="fa fa-star-half" aria-hidden="true"></i>
           <% } %>
           </p>
         </div>
       </div>
-    <hr>
     <% } %>
+    <hr>
   <% }); %>
 </div>
