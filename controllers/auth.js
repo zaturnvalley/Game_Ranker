@@ -10,6 +10,7 @@ router.get('/signup', function(req, res) {
 });
 
 router.post('/signup', function(req,res){
+  console.log(req.body);
   db.user.findOrCreate({
     where: { email: req.body.email},
     defaults: {
@@ -28,6 +29,9 @@ router.post('/signup', function(req,res){
       res.redirect('/auth/signup');
     }
   }).catch(function(error) {
+    if(error.message == "NaN"){
+      req.flash("Please enter a longer password")
+    }
     req.flash('error', 'An error occurred: ', + error.message);
     res.redirect('/auth/signup');
   });
