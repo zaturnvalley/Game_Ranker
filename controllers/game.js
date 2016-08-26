@@ -37,6 +37,7 @@ router.post('/:id', function(req, res){
       id: req.user.id
     }
   }).then(function(user){
+    console.log('~~'+req.body.imgURL+'~~');
     if(user){
       user.createGame({
         title: req.body.title,
@@ -54,7 +55,7 @@ router.post('/:id', function(req, res){
             rating: req.body.rating
           });
         }).then(function(rating){
-          res.redirect("/game/" + req.body.id);
+          res.redirect("/game/" + req.body.apiId);
         });
       });
     } else {

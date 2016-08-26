@@ -24,12 +24,9 @@
     <form method="post" action="/game/<%= data.id %>" class="form-group">
       <input name="title" type="hidden" value="<%= data.name %>">
       <input name="apiId" type="hidden" value="<%= data.id %>">
-      <input name="imgURL" type="hidden" value="<% if(data.cover) { %>
-      <%= data.cover.cloudinary_id%>
-      <% } else { %>
-      undefined
+      <% if(data.cover) { %>
+        <input name="imgURL" type="hidden" value="<%= data.cover.cloudinary_id %>">
       <% } %>
-      ">
       <input type="text" name="review" class="form-control" rows="3" placeholder="Write Your Review Of This Game" style="text-align:center">
       <h6>Rate <%= data.name %></h6>
       <fieldset class="rating">
