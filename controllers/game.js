@@ -66,20 +66,4 @@ router.post('/:id', function(req, res){
   });
 });
 
-// router.put('/:id', function(req, res){
-//   db.game.update({
-//       avRating: ((avRating * numbRatings)+req.body.rating) / (numbRatings + 1),
-//       numbRatings: numbRatings++
-//     where: {
-//       gameId: req.params.id
-//     }
-//   }).spread(function(usersgames){
-//     db.game.update({
-//       where: {
-
-//       }
-//     });
-//   });
-// });
-
 module.exports = router;
