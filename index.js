@@ -43,34 +43,7 @@ app.use(function(req, res, next) {
 app.use(ejsLayouts);
 
 app.get('/', function(req, res) {
-  db.sequelize.query(`
-          SELECT
-            "users"."id" AS "userId",
-            "games"."id" AS "gameId",
-            "games"."imgURL",
-            "games"."title",
-            "games"."apiId",
-            "ratings"."rating",
-            "reviews"."review",
-            "users"."firstName"
-          FROM "users"
-            LEFT JOIN "gamesUsers" 
-              ON "users"."id" = "gamesUsers"."userId"
-            LEFT JOIN "games" 
-              ON "gamesUsers"."gameId" = "games"."id" 
-            LEFT JOIN "ratings"
-              ON "users"."id" = "ratings"."userId" 
-                AND "games"."id" = "ratings"."gameId"
-            LEFT JOIN "reviews" 
-              ON "users"."id" = "reviews"."userId"
-                AND "games"."id" = "reviews"."gameId" 
-          WHERE "users"."id" = ?`, 
-        {replacements: [req.params.id], 
-        type: db.sequelize.QueryTypes.SELECT
-    }).then(function(data) {
-      res.render('index', {games: data});
-      console.log(data[0]);
-    });
+  res.render('index');
 });
 
 app.get('/results', function(req, res){
