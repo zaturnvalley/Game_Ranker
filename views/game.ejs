@@ -43,7 +43,11 @@
       </fieldset>
       <br>
       <hr>
-      <input type="submit" name="Submit" class="btn btn-primary">
+      <% if(!currentUser) { %>
+        <h3>Please log in to review</h3>
+      <% } else { %>
+         <input type="submit" name="Submit" class="btn btn-primary" id="gameSubmit">
+      <% } %>
     </form>
   <div>
 
