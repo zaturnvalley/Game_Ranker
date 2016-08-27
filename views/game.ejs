@@ -13,9 +13,9 @@
 
   <hr>
     <% if(data.cover) { %> 
-      <img class="img-responsive col-md-6 col-md-3-offset" src="https://res.cloudinary.com/igdb/image/upload/t_cover_big_2x/<%= data.cover.cloudinary_id %>.webp">
+      <img class="img-responsive col-md-6 col-md-3-offset" src="https://res.cloudinary.com/igdb/image/upload/t_cover_big_2x/<%= data.cover.cloudinary_id %>.webp" alt="<%= data.title %>"> 
     <% } else { %> 
-      <img class="img-responsive text-center" src="/img/noImg.jpg"> 
+      <img class="img-responsive text-center" src="/img/noImg.jpg" alt="<%= data.title %>"> 
     <% } %>
   <div class="col-md-6">
     <h4><strong>Summary</strong></h4>

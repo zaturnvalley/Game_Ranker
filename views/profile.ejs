@@ -6,9 +6,9 @@
       <div class="row">
         <div class="col-md-3">
           <% if(data.imgURL) { %> 
-            <a href="/game/<%= data.apiId %>"><img class="img-responsive" src="https://res.cloudinary.com/igdb/image/upload/t_cover_big_2x/<%= data.imgURL %>.webp"></a>
+            <a href="/game/<%= data.apiId %>"><img class="img-responsive" src="https://res.cloudinary.com/igdb/image/upload/t_cover_big_2x/<%= data.imgURL %>.webp" alt="<%= data.title %>"></a>
           <% } else { %> 
-            <a href="/game/<%= data.apiId %>"><img class="img-responsive" src="./img/noImg.jpg"> </a>
+            <a href="/game/<%= data.apiId %>"><img class="img-responsive" src="./img/noImg.jpg" alt="<%= data.title %>"></a>
           <% } %>
         </div>
         <div class="col-md-3">
