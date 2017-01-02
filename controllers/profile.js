@@ -65,7 +65,6 @@ router.delete("/game/:gameid", function(req, res){
 });
 
 router.put("/game/:id", function (req, res){
-  console.log("*****************", req.body);
   db.review.update({
     review: req.body.review
   },{

@@ -15,14 +15,13 @@ var qs = {
     url: 'https://igdbcom-internet-game-database-v1.p.mashape.com/games/' + req.params.id,
     qs: qs,
     headers: {
-      'X-Mashape-Authorization': 'hXLe4J3n8mmsh2eE87CZRHjApjC4p1MWaVZjsngoSvtQyXUOD9'
+      'X-Mashape-Authorization': process.env.AUTH
     }
   }, function(error, response, body){
     var data = JSON.parse(body);
     var game = db.game;
     var usersgames = db.usersgames;
     if(!error){
-      console.log(data);
       res.render('game', {data: data[0], game: game, usersgames: usersgames});
     } else {
       res.send("Nope! Didn't work. Looks like there was an error. :'(");
