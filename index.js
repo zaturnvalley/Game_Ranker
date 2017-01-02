@@ -78,9 +78,8 @@ app.get('/results', function(req, res){
   var qs = {
     search: req.query.q,
     fields: 'name',
-    limit: 20,
+    limit: 30,
     offset: 0,
-    order: 'release_dates.date:desc',
     r: 'json'
   }
   request({ 
