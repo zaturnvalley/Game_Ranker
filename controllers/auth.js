@@ -10,7 +10,6 @@ router.get('/signup', function(req, res) {
 });
 
 router.post('/signup', function(req,res){
-  console.log(req.body);
   db.user.findOrCreate({
     where: { email: req.body.email},
     defaults: {

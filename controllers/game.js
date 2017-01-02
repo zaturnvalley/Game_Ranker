@@ -31,13 +31,11 @@ var qs = {
 });
 
 router.post('/:id', function(req, res){
-  console.log(req.session);
   db.user.find({
     where: {
       id: req.user.id
     }
   }).then(function(user){
-    console.log('~~'+req.body.imgURL+'~~');
     if(user){
       user.createGame({
         title: req.body.title,
