@@ -15,7 +15,7 @@ var qs = {
     url: 'https://igdbcom-internet-game-database-v1.p.mashape.com/games/' + req.params.id,
     qs: qs,
     headers: {
-      'X-Mashape-Authorization': process.env.AUTH
+      'X-Mashape-Authorization': 'hXLe4J3n8mmsh2eE87CZRHjApjC4p1MWaVZjsngoSvtQyXUOD9'
     }
   }, function(error, response, body){
     var data = JSON.parse(body);
