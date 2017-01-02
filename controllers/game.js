@@ -24,6 +24,7 @@ var qs = {
     if(!error){
       res.render('game', {data: data[0], game: game, usersgames: usersgames});
     } else {
+      console.log('error', error)
       res.send("Nope! Didn't work. Looks like there was an error. :'(");
     }  
   });
