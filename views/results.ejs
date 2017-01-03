@@ -1,12 +1,20 @@
-<div class="text-center" style="margin-left: 25px; margin-right: 25px">
+<div class="text-center">
   <span class="glyphicon glyphicon-menu-left" aria-hidden="true"><a href="/"><h4>Back</h4></a></span>
+  <table class="table table-striped text-center">
   <% results.forEach(function(result){ %>
-        <div>
-        <h2> <%= result.name %> </h2>
+        <tr class="table-striped">
+          <td>
+            <h2> <%= result.name %> </h2>
+          </td>
+        </tr>
+        <tr>
+          <td>
           <ul style="list-style-type: none">
             <li><a href="game/<%= result.id %>">Click for <%= result.name %>'s Individual Page</a></li>
               </a></li>
           </ul>
-        </div>
+          </td>
+        </tr>
       <% }) %>
+  </table>
 </div>
