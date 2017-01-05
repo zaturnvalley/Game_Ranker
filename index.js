@@ -86,7 +86,7 @@ app.get('/results', function(req, res){
     url: 'https://igdbcom-internet-game-database-v1.p.mashape.com/games/',
     qs: qs,
     headers: {
-      'X-Mashape-Authorization': 'hXLe4J3n8mmsh2eE87CZRHjApjC4p1MWaVZjsngoSvtQyXUOD9'
+      'X-Mashape-Authorization': process.env.AUTH
     }
   }, function(error, response, body){
     var data = JSON.parse(body);
