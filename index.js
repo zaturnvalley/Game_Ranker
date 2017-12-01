@@ -93,6 +93,7 @@ app.get('/results', function(req, res){
     if(!error && response.statusCode == 200){
       res.render('results', {results: data});
     } else {
+      console.log(error);
       res.send("Nope! Didn't work. Looks like there was an error. :'(");
     }
   });

@@ -7,7 +7,7 @@
 
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://bootswatch.com/yeti/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link rel="stylesheet" href="/css/font-awesome-4.6.3/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Gameness">
@@ -18,9 +18,7 @@
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          </button>
-          <a class="navbar-brand" href="/" style="font-size: 35px; font-family: 'Futura'">Game Ranker  <i class="fa fa-gamepad" aria-hidden="true"></i></a>
+          <a class="navbar-brand navText" href="/" style="font-size: 35px; font-family: 'Futura'">Game Ranker  <i class="fa fa-gamepad" aria-hidden="true"></i></a>
         </div>
         <form method='get' action='/results' class="navbar-form navbar-right">
               <div class="form-group">
@@ -30,12 +28,12 @@
         </form>
         <ul class="nav navbar-nav navbar-right">
           <% if(currentUser) { %>
-          <li><a href="/profile/<%= currentUser.id %>">Profile</a></li>
+          <li><a class="navText" href="/profile/<%= currentUser.id %>">Profile</a></li>
           <% } %>
-          <li><a href="/auth/signup">Sign Up</a></li>
+          <li><a class="navText"href="/auth/signup">Sign Up</a></li>
           <li role="separator" class="divider"></li>
-          <li><a href="/auth/login">Log In</a></li>
-          <li><a href="/auth/logout">Log Out</a></li>
+          <li><a class="navText" href="/auth/login">Log In</a></li>
+          <li><a class="navText" href="/auth/logout">Log Out</a></li>
         </ul>
       </div><!-- /.container-fluid -->
     </nav>
@@ -61,6 +59,7 @@
     <footer class="text-center">
       <p><strong>Site designed by <a href="https://github.com/zaturnvalley/">Zach Mason</a> &copy; 2016</strong></p>
       <p>Information was freely provided by igdb.com</p>
+    </footer>
     <script src="//code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="/js/ajax.js"></script>
