@@ -12,13 +12,13 @@ var qs = {
     fields: '*'
   }
   request({ 
-    url: 'https://igdbcom-internet-game-database-v1.p.mashape.com/games/' + req.params.id,
+    url: 'https://api-2445582011268.apicast.io/games/' + req.params.id,
     qs: qs,
     headers: {
-      'X-Mashape-Authorization': process.env.AUTH
+      'user-key': 'f71f90511257c0fada4777c0dc789a19'
     }
   }, function(error, response, body){
-    var data = JSON.parse(body);
+    var data = JSON.parse(response.body);
     var game = db.game;
     var usersgames = db.usersgames;
     if(!error){

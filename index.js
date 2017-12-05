@@ -96,7 +96,7 @@ app.get('/results', function(req, res){
     if(!error && response.statusCode == 200){
       res.render('results', {results: data});
     } else {
-      res.send("API currently down. Currently in process of fixing as of 12/4/2017");
+      res.send("API currently down. Currently fixing.");
     }
   });
 });
