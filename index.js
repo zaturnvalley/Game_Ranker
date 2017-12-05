@@ -11,7 +11,7 @@ var path = require('path');
 var isLoggedIn = require('./middleware/isLoggedIn');
 var gameCtrl = require("./controllers/game");
 var profileCtrl = require("./controllers/profile");
-var igdb = require('igdb-api-node').default;
+// var igdb = require('igdb-api-node').default;
 
 //Global Variables
 var app = express();
@@ -76,43 +76,29 @@ app.get('/', function(req, res) {
 });
 
 app.get('/results', function(req, res){
-  // var qs = {
-  //   search: req.query.q,
-  //   fields: 'name',
-  //   limit: 30,
-  //   offset: 0,
-  //   r: 'json'
-  // }
-  var client = igdb(process.env.AUTH);
 
-  client.games({
+  var qs = {
+    search: req.query.q,
     fields: 'name',
     limit: 30,
-    offset: 0, 
-    search: req.query.q
-  }).then((error, response, body) => {
-    var data = JSON.parse(body);
+    offset: 0,
+    r: 'json'
+  }
+  request({ 
+    url: 'https://api-2445582011268.apicast.io/games/',
+    qs: qs,
+    headers: {
+      'user-key': 'f71f90511257c0fada4777c0dc789a19'
+    }
+  }, function(error, response, body){
+    console.log(response);
+    var data = JSON.parse(response.body);
     if(!error && response.statusCode == 200){
       res.render('results', {results: data});
     } else {
-      res.send('error');
+      res.send("API currently down. Currently in process of fixing as of 12/4/2017");
     }
   });
-  // request({ 
-  //   url: 'https://api-2445582011268.apicast.io',
-  //   qs: qs,
-  //   headers: {
-  //     'X-Mashape-Authorization': process.env.AUTH
-  //   }
-  // }, function(error, response, body){
-  //   // var data = JSON.parse(body);
-  //   console.log(body);
-  //   // if(!error && response.statusCode == 200){
-  //   //   res.render('results', {results: data});
-  //   // } else {
-  //   //   res.send("API currently down. Currently in process of fixing as of 12/1/2017");
-  //   // }
-  // });
 });
 
 app.use("/game", gameCtrl);
