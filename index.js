@@ -16,6 +16,7 @@ var profileCtrl = require("./controllers/profile");
 //Global Variables
 var app = express();
 var db = require('./models');
+var p = process.env.AUTH;
 
 //Settings & Use Statements
 app.set('view engine', 'ejs');
@@ -88,10 +89,9 @@ app.get('/results', function(req, res){
     url: 'https://api-2445582011268.apicast.io/games/',
     qs: qs,
     headers: {
-      'user-key': process.env.AUTH
+      'user-key': p
     }
   }, function(error, response, body){
-    console.log(response);
     var data = JSON.parse(response.body);
     if(!error && response.statusCode == 200){
       res.render('results', {results: data});
