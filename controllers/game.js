@@ -4,6 +4,9 @@ var request = require('request');
 var router = express.Router();
 var path = require('path');
 
+//Pull in env
+require('dotenv').config();
+
 var db = require('../models');
 
 //Routes

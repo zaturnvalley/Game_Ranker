@@ -1,7 +1,6 @@
 //Requirements
 var express = require('express');
 var request = require('request');
-require('dotenv').config();
 var ejsLayouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
 var session = require('express-session');
@@ -12,6 +11,9 @@ var path = require('path');
 var isLoggedIn = require('./middleware/isLoggedIn');
 var gameCtrl = require("./controllers/game");
 var profileCtrl = require("./controllers/profile");
+
+//Pull in env
+require('dotenv').config();
 
 //Global Variables
 var app = express();
