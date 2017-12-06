@@ -89,7 +89,7 @@ app.get('/results', function(req, res){
     url: 'https://api-2445582011268.apicast.io/games/',
     qs: qs,
     headers: {
-      'user-key': process.env.AUTH
+      'user-key': process.env.AUTH || AUTH
     }
   }, function(error, response, body){
     var data = JSON.parse(response.body);
