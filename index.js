@@ -1,6 +1,7 @@
 //Requirements
 var express = require('express');
 var request = require('request');
+require('dotenv').config();
 var ejsLayouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
 var session = require('express-session');
@@ -11,7 +12,6 @@ var path = require('path');
 var isLoggedIn = require('./middleware/isLoggedIn');
 var gameCtrl = require("./controllers/game");
 var profileCtrl = require("./controllers/profile");
-// var igdb = require('igdb-api-node').default;
 
 //Global Variables
 var app = express();
@@ -88,7 +88,7 @@ app.get('/results', function(req, res){
     url: 'https://api-2445582011268.apicast.io/games/',
     qs: qs,
     headers: {
-      'user-key': 'f71f90511257c0fada4777c0dc789a19'
+      'user-key': process.env.AUTH
     }
   }, function(error, response, body){
     console.log(response);

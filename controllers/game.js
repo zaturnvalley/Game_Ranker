@@ -15,7 +15,7 @@ var qs = {
     url: 'https://api-2445582011268.apicast.io/games/' + req.params.id,
     qs: qs,
     headers: {
-      'user-key': 'f71f90511257c0fada4777c0dc789a19'
+      'user-key': process.env.AUTH
     }
   }, function(error, response, body){
     var data = JSON.parse(response.body);
