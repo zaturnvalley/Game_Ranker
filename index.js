@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 (require('dotenv').config({ silent: process.env.NODE_ENV === 'production' }));
 
 
-app.use(session({
+app.use(require('cookie-session')({
   secret: process.env.SESSION_SECRET || 'abcdefghijklmnopqrstuvwxyz',
   resave : false,
   saveUninitialized: true
