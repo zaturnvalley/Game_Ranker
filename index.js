@@ -1,5 +1,4 @@
 //Requirements
-require('dotenv').config();
 var express = require('express');
 var request = require('request');
 var ejsLayouts = require('express-ejs-layouts');
@@ -16,13 +15,14 @@ var profileCtrl = require("./controllers/profile");
 //Global Variables
 var app = express();
 var db = require('./models');
-var p = process.env.AUTH;
 
 //Settings & Use Statements
 app.set('view engine', 'ejs');
 app.use(require('morgan')('dev'));
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.urlencoded({ extended: false }));
+(require('dotenv').config({ silent: process.env.NODE_ENV === 'production' }));
+
 
 app.use(session({
   secret: process.env.SESSION_SECRET || 'abcdefghijklmnopqrstuvwxyz',
@@ -89,7 +89,7 @@ app.get('/results', function(req, res){
     url: 'https://api-2445582011268.apicast.io/games/',
     qs: qs,
     headers: {
-      'user-key': p
+      'user-key': process.env.AUTH
     }
   }, function(error, response, body){
     var data = JSON.parse(response.body);
