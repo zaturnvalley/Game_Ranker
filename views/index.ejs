@@ -13,7 +13,7 @@
         <div class="row">
           <div class="col-md-3">
             <% if(data.imgURL) { %> 
-              <a href="/game/<%= data.apiId %>"><img class="img-responsive" src="https://res.cloudinary.com/igdb/image/upload/t_cover_big_2x/<%= data.imgURL %>.webp" alt="<%= data.title %>"></a>
+              <a href="/game/<%= data.apiId %>"><img class="img-responsive" src="https://images.igdb.com/igdb/image/upload/t_cover_big/<%= data.imgURL %>.jpg" alt="<%= data.title %>"></a>
             <% } else { %> 
               <a href="/game/<%= data.apiId %>"><img class="img-responsive" src="./img/noImg.jpg" alt="<%= data.title %>"></a>
             <% } %>

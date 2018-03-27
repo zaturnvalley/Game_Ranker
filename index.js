@@ -72,6 +72,7 @@ app.get('/', function(req, res) {
     LIMIT 5`, 
       { type: db.sequelize.QueryTypes.SELECT
   }).then(function(data) {
+    console.log(data)
     res.render('index', {games: data});
   });
 });
